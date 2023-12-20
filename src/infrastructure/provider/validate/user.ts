@@ -1,4 +1,4 @@
-import { checkNumberEmpty, checkStringEmpty} from "./validate";
+import { checkLengthPassword, checkNumberEmpty, checkStringEmpty} from "./validate";
 import { CreateUserUseCaseRequest, DeleteUserUseCaseRequest, GetUserByIDUseCaseRequest, UpdateUserUseCaseRequest } from "../../../domain/usecase/ucio/user";
 import { CreateUserUseCaseValidateInterface, DeleteUserUseCaseValidateInterface, GetUserByIDUseCaseValidateInterface, UpdateUserUseCaseValidateInterface } from "../../../domain/usecase/validate/user";
 import { checkEmailExists } from "../../internal/database/postgresql/validate/validate";
@@ -12,6 +12,8 @@ class CreateUserUseCaseValitade implements CreateUserUseCaseValidateInterface{
         if(checkStringEmpty(req.email)) return "O email não pode ser vazio"
 
         if(checkStringEmpty(req.password)) return "A senha não pode ser vazia"
+
+        if(checkLengthPassword(req.password)) return "A senha tem que ter mais de 6 caracteres"
 
         if(await checkEmailExists(req.email)) return "Email já registrado"
 

@@ -11,7 +11,6 @@ class CreateUserUseCaseRepository implements CreateUserUseCaseRepositoryInterfac
 
 class GetUserUseCaseRepository implements GetUserByIDUseCaseRepositoryInterface{
     async getUser(userId: number):Promise<UserEntity|null>{
-        console.log("teste")
         return await getUser(userId)
     }
 }
@@ -32,10 +31,9 @@ class DeleteUserUseCaseRepository implements DeleteUserUseCaseRepositoryInterfac
     
 }
 
-
 export{
     CreateUserUseCaseRepository,
     GetUserUseCaseRepository,
     UpdateUserUseCaseRepository,
     DeleteUserUseCaseRepository
-}
+}   
