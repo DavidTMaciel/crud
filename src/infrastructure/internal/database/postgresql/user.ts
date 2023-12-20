@@ -11,11 +11,8 @@ async function createUser(user: UserEntity): Promise<UserEntity> {
 }
 
 async function getUser(userID: number): Promise<UserEntity | null> {
-    console.log("teste")
     const repository = AppDataSource.getRepository(UserModel)
-    console.log(repository)
     const user = await repository.findOne({ where: { ID: userID } })
-    console.log(user)
     return user ? toUserEntity(user) : null
 }
 

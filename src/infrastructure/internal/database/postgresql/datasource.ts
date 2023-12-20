@@ -15,4 +15,4 @@ const AppDataSource = new DataSource({
     logging: false,
 })
 
-export {AppDataSource}
+export { AppDataSource }

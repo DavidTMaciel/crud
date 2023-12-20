@@ -53,7 +53,6 @@ class GetUserUseCase {
             const messageError: any = await this.validate.getUser(req)
 
             if (!messageError) {
-                console.log("teste useCase")
                 const data = await this.repository.getUser(req.ID)
 
                 return new GetUserByIDUseCaseResponse(data, null)
