@@ -10,3 +10,4 @@ async function checkEmailExists(email: string): Promise<boolean> {
 export{
     checkEmailExists
 }
+//criar dentro do arquivo de user
